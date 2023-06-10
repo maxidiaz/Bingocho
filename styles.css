@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  padding: 8px;
+  padding-right: 0px;
+  height: 100vh;
+  display: flex;
+}
+
+img {
+  width: 15%;
+  height: auto;
+}
+
+.btn {
+  font-size: 1.5em;
+  width: 5em;
+  height: 3em;
+  margin: 0.5em;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+}
+
+.h1 {
+  margin: 0.5em;
+}
+
+.hide {
+  display: none !important;
+}
+
+.colorSelectorSection {
+  width: 15%;
+  padding: 8px;
+  font-size: 2.5vh;
+}
+
+.colorSelectors {
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+.carton {
+  width: 85%;
+  height: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  background-color: blue;
+  padding: 2.5vh;
+  border: solid;
+  border-width: 3px;
+  border-color: #000000;
+}
+
+.fila {
+  height: 33.3%;
+  display: flex;
+}
+
+.casillero {
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  width: 11.11%;
+  border: 0.5vh solid #000000;
+  font-size: 7vh;
+}
+
+.casillero.playable {
+  background-color: #ffffff;
+}
+
+.numero.playable {
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+
+.numero {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15vh;
+  height: 15vh;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+.numero.playable.marked {
+  background-color: red;
+}
+
+.mt {
+  margin-top: 8px;
+}
+
+.numList {
+  user-select: none;
+  margin-top: 8px;
+  width: 100%;
+  height: auto;
+  border: solid;
+  border-width: 2px;
+  border-color: #000000;
+  max-height: 55vh;
+  overflow: auto;
+  font-size: 20px;
+}
+
+.newNum {
+  margin-top: 6px;
+}
+
+.numSection {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
