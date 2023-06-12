@@ -8,83 +8,126 @@
   <title>Bingocho</title>
   <link href="https://fonts.cdnfonts.com/css/roboto" rel="stylesheet" />
 
-  <link rel="stylesheet" href="./styles.css?4" />
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 
 <body>
-  <form id="form" class="form">
+  <div class="initial_screen" data-role="screen">
     <span>
       <img src="assets/img/app_logo.png" alt="" />
     </span>
-    <h1 class="h1">¿Vos vas a cantar los numeros?</h1>
+    <h1>¿Vos vas a cantar los numeros?</h1>
     <div>
-      <button type="submit" name="submitButton" value="SI" class="btn">
-        SI
-      </button>
-      <button type="submit" name="submitButton" value="NO" class="btn">
-        NO
-      </button>
-    </div>
-  </form>
-  <div id="carton" class="carton hide">
-    <div id="row1" class="fila">
-      <div class="casillero"></div>
-      <div class="casillero"></div>
-      <div class="casillero"></div>
-      <div class="casillero"></div>
-      <div class="casillero"></div>
-      <div class="casillero"></div>
-      <div class="casillero"></div>
-      <div class="casillero"></div>
-      <div class="casillero"></div>
-    </div>
-    <div id="row2" class="fila">
-      <div class="casillero"></div>
-      <div class="casillero"></div>
-      <div class="casillero"></div>
-      <div class="casillero"></div>
-      <div class="casillero"></div>
-      <div class="casillero"></div>
-      <div class="casillero"></div>
-      <div class="casillero"></div>
-      <div class="casillero"></div>
-    </div>
-    <div id="row3" class="fila">
-      <div class="casillero"></div>
-      <div class="casillero"></div>
-      <div class="casillero"></div>
-      <div class="casillero"></div>
-      <div class="casillero"></div>
-      <div class="casillero"></div>
-      <div class="casillero"></div>
-      <div class="casillero"></div>
-      <div class="casillero"></div>
+      <button id="initial_screen_yes_btn" class="btn">SI</button>
+      <button id="initial_screen_no_btn" class="btn">NO</button>
     </div>
   </div>
-  <div class="colorSelectorSection hide">
-    <div class="colorselectors">
+
+  <div id="game_screen" data-role="screen" class="hide">
+    <div id="carton" class="carton">
+      <div id="row1" class="fila">
+        <div class="casillero"></div>
+        <div class="casillero"></div>
+        <div class="casillero"></div>
+        <div class="casillero"></div>
+        <div class="casillero"></div>
+        <div class="casillero"></div>
+        <div class="casillero"></div>
+        <div class="casillero"></div>
+        <div class="casillero"></div>
+      </div>
+      <div id="row2" class="fila">
+        <div class="casillero"></div>
+        <div class="casillero"></div>
+        <div class="casillero"></div>
+        <div class="casillero"></div>
+        <div class="casillero"></div>
+        <div class="casillero"></div>
+        <div class="casillero"></div>
+        <div class="casillero"></div>
+        <div class="casillero"></div>
+      </div>
+      <div id="row3" class="fila">
+        <div class="casillero"></div>
+        <div class="casillero"></div>
+        <div class="casillero"></div>
+        <div class="casillero"></div>
+        <div class="casillero"></div>
+        <div class="casillero"></div>
+        <div class="casillero"></div>
+        <div class="casillero"></div>
+        <div class="casillero"></div>
+      </div>
+    </div>
+    <div class="actions_section">
+      <div id="settings_btn" class="icon_button">
+        <i class="fa-solid fa-gear"></i>
+      </div>
+      <div id="bingo_caller" class="numSection hide">
+        <div class="historyBallsBtnWrapper">
+          <div id="seeHistoryBallsBtn" class="icon_button">
+            <i class="fa-regular fa-file-lines"></i>
+          </div>
+        </div>
+        <div id="numberBallWrapper"></div>
+        <button class="newNumberBtn">Sacar número</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="settings">
+    <div id="close_settings_btn" class="icon_button">
+      <i class="fa-solid fa-xmark"></i>
+    </div>
+    <div class="colorselectors setting_item">
       <h3>Color del cartón</h3>
       <input id="colorSelector" type="color" value="#0000ff" />
     </div>
-    <div class="colorSelectors">
+    <div class="colorSelectors setting_item">
       <h3>Color del marcador</h3>
       <input id="colorSelectorMarker" type="color" value="#FF0000" />
     </div>
-    <div class="mt">
+    <div class="setting_item">
       <h3>Recargar cartón</h3>
-      <button id="reloadCartorBtn">Recargar</button>
+      <button id="reloadCartorBtn" class="setting_btn">Recargar</button>
     </div>
-    <div class="numSection hide">
-      <button class="newNum">Sacar numero</button>
-      <p class="numList"></p>
+    <div class="setting_item">
+      <h3>Sonido</h3>
+      <button id="enableSoundBtn" class="setting_btn">
+        <i class="fa-solid fa-volume-high fa-xl"></i>
+      </button>
     </div>
-    <audio src="./assets/audio/btn_pressed.mp3" type="audio/mp3" autostart="false" id="clck" class="hide"></audio>
-    <audio src="./assets/audio/full_line.mp3" type="audio/mp3" autostart="false" id="fullLineAudio" class="hide"></audio>
-    <audio src="./assets/audio/win.mp3" type="audio/mp3" autostart="false" id="bingocho" class="hide"></audio>
-    <audio src="./assets/audio/shuffle.mp3" type="audio/mp3" autostart="false" id="mezclar" class="hide"></audio>
-    <audio src="./assets/audio/new_ball.mp3" type="audio/mp3" autostart="false" id="sacarNum" class="hide"></audio>
   </div>
-  <script src="./scripts.js?4"></script>
+
+  <div id="numbersHistory">
+    <h3>Números previos</h3>
+    <div id="close_history_btn" class="icon_button">
+      <i class="fa-solid fa-xmark"></i>
+    </div>
+    <div id="numbersContainer"></div>
+  </div>
+
+  <div id="overlay" class="overlay hide"></div>
+
+  <div id="sounds" class="hide">
+    <audio src="./assets/audio/btn_pressed.mp3" type="audio/mp3" autostart="false" id="btn_pressed_audio"></audio>
+    <audio src="./assets/audio/full_line.mp3" type="audio/mp3" autostart="false" id="full_line_audio"></audio>
+    <audio src="./assets/audio/win.mp3" type="audio/mp3" autostart="false" id="win_audio"></audio>
+    <audio src="./assets/audio/shuffle.mp3" type="audio/mp3" autostart="false" id="shuffle_audio"></audio>
+    <audio src="./assets/audio/new_ball.mp3" type="audio/mp3" autostart="false" id="new_ball_audio"></audio>
+  </div>
+
+  <script src="./js/game.js"></script>
+  <script src="./js/sounds.js"></script>
+  <script src="./js/settings.js"></script>
+  <script src="./js/carton.js"></script>
+  <script src="./js/initialScreen.js"></script>
+  <script src="./js/bingoCaller.js"></script>
+  <script src="./js/scripts.js"></script>
 </body>
 
 </html>
