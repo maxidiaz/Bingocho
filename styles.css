@@ -10,14 +10,14 @@ body {
   height: 100vh;
 }
 
-[data-role=screen] {
+[data-role="screen"] {
   padding: 16px;
   width: 100vw !important;
   height: 100%;
 }
 
 img {
-  width: 15%;
+  width: 20%;
   height: auto;
 }
 
@@ -92,7 +92,6 @@ img {
   background-color: #ffffff;
 }
 
-
 .numero.playable {
   transition: background-color 0.5s ease;
   cursor: pointer;
@@ -116,12 +115,36 @@ img {
   background-color: red;
 }
 
-.numero:focus, .numero:active {
+.numero:focus,
+.numero:active {
   background: none;
 }
 
 .mt {
   margin-top: 8px;
+}
+
+@keyframes cambioLogo {
+  0% {
+    width: 23vw;
+    height: auto;
+    margin-top: 2vw;
+    margin-left: -47vw;
+  }
+  100% {
+    width: 11vw;
+    height: auto;
+    margin-top: 6vw;
+    margin-left: 1.3vw;
+  }
+}
+
+#logo {
+  animation: cambioLogo 0.7s ease forwards;
+}
+
+.logo {
+  animation: cambioLogo 0.7s ease reverse forwards;
 }
 
 #bingo_caller {
@@ -144,9 +167,9 @@ img {
 }
 
 .numberBall {
-  border: 1vw solid #CC0000;
+  border: 1vw solid #cc0000;
   border-radius: 50%;
-  color: #CC0000;
+  color: #cc0000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -196,7 +219,7 @@ img {
   height: 30px;
   border-radius: 50%;
   box-shadow: 0px 2px 3px #555555;
-  background-color: #EAEAEA;
+  background-color: #eaeaea;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -204,23 +227,24 @@ img {
 
 #settings {
   border-radius: 5px;
-  background-color: #FAFAFA;
+  background-color: #fafafa;
   position: fixed;
-  left: 12px;
-  right: 12px;
+  transition: right 0.5s ease;
+  right: -30vw;
   padding: 16px;
-  height: 95vh;
-  top: -100vh;
-  transition: top 0.5s ease;
+  height: 100vh;
+  width: 20vw;
   box-shadow: 3px 5px 6px #444444, -3px 5px 6px #444444;
   z-index: 10;
+  top: 0px;
 }
 
 .roll-down {
   top: 0px !important;
 }
 
-#close_settings_btn, #close_history_btn {
+#close_settings_btn,
+#close_history_btn {
   position: absolute;
   right: 16px;
   top: 16px;
@@ -247,17 +271,17 @@ img {
 }
 
 #numbersHistory {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
+  user-select: none;
   position: fixed;
   height: 100vh;
   box-shadow: -4px 0px 5px #333333;
-  width: 40vw;
+  width: 30vw;
   right: -55vw;
   top: 0px;
   transition: right 0.5s ease;
-  padding: 12px 50px 12px 8px;
+  padding: 12px 8px 12px 8px;
   z-index: 10;
-  
 }
 
 #numbersHistory #numbersContainer {
@@ -292,7 +316,7 @@ img {
   right: 0px;
   left: 0px;
   opacity: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   transition: opacity 0.5s ease;
 }
 
