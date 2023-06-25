@@ -1,0 +1,420 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  padding-right: 0px;
+  height: 100vh;
+}
+
+[data-role="screen"] {
+  padding: 16px;
+  width: 100vw !important;
+  height: 100%;
+}
+
+.btn {
+  font-size: 1.5em;
+  width: 4em;
+  height: 2.5em;
+  margin: 0.2em;
+}
+
+.initial_screen {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+}
+
+#initial_screen {
+  position: relative;
+  top: 11vw;
+}
+
+.initial_screen h1 {
+  margin: 0.2.5em;
+}
+
+.hide {
+  display: none !important;
+}
+
+.colorSelectors {
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+#game_screen {
+  display: flex;
+}
+
+.actions_section {
+  width: 15%;
+  padding: 0px 12px;
+  position: relative;
+}
+
+.carton {
+  width: 85%;
+  height: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  background-color: blue;
+  padding: 2.5vh;
+  border: solid;
+  border-width: 3px;
+  border-color: #000000;
+}
+
+.fila {
+  height: 33.3%;
+  display: flex;
+}
+
+.casillero {
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  width: 11.11%;
+  border: 0.5vh solid #000000;
+  font-size: 7vh;
+}
+
+.casillero.playable {
+  background-color: #ffffff;
+}
+
+.numero.playable {
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+
+.numero {
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15vh;
+  height: 15vh;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+.numero.playable.marked {
+  background-color: red;
+}
+
+.numero:focus,
+.numero:active {
+  background: none;
+}
+
+.mt {
+  margin-top: 8px;
+}
+
+@keyframes cambioLogo {
+  0% {
+    position: absolute;
+    width: 18vw;
+    margin: 4vw;
+    left: 36.5vw;
+    height: auto;
+    top: 0vw;
+  }
+  100% {
+    position: absolute;
+    width: 10vw;
+    height: auto;
+    margin: 1vw;
+    left: 85.7vw;
+    top: 5.2vw;
+  }
+}
+
+.logo {
+  animation: cambioLogo 0.7s ease forwards;
+}
+
+#logo {
+  position: absolute;
+  width: 18vw;
+  margin: 4vw;
+  left: 36.5vw;
+  height: auto;
+  top: 0vw;
+  z-index: 5;
+}
+
+#bingo_caller {
+  left: 12px;
+  right: 12px;
+  position: absolute;
+  bottom: 0px;
+}
+
+#numberBallWrapper {
+  user-select: none;
+  margin-bottom: 12px;
+  width: 100%;
+  aspect-ratio: 1/1;
+  border: solid 2px #000000;
+  overflow: auto;
+  font-size: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.numberBall {
+  border: 1vw solid #cc0000;
+  border-radius: 50%;
+  color: #cc0000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4.5vw;
+  font-weight: bold;
+}
+
+#numberBallWrapper .numberBall {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  animation: ball-roll 0.4s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes ball-roll {
+  0% {
+    top: -100%;
+    right: -100%;
+    transform: rotate(90deg);
+  }
+  100% {
+    right: 50%;
+    top: 50%;
+    transform: rotate(0) translate(50%, -50%);
+  }
+}
+
+.newNumberBtn {
+  height: 40px;
+  width: 100%;
+}
+
+.numSection {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#settings_btn {
+  position: absolute;
+  right: 0px;
+}
+
+.icon_button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  box-shadow: 0px 2px 3px #555555;
+  background-color: #eaeaea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#settings {
+  border-radius: 5px;
+  background-color: #fafafa;
+  position: fixed;
+  transition: right 0.5s ease;
+  right: -100vw;
+  padding: 16px;
+  height: 100vh;
+  width: 30vw;
+  box-shadow: 3px 5px 6px #444444, -3px 5px 6px #444444;
+  z-index: 10;
+  top: 0px;
+  overflow: scroll;
+}
+
+#close_settings_btn,
+#close_history_btn {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+}
+
+.setting_item {
+  margin-top: 8px;
+}
+
+.setting_item h3 {
+  margin-bottom: 2px;
+}
+
+.setting_btn {
+  font-weight: bold;
+  padding: 8px;
+}
+
+.historyBallsBtnWrapper {
+  margin-bottom: 12px;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#numbersHistory {
+  background-color: #ffffff;
+  user-select: none;
+  position: fixed;
+  height: 100vh;
+  box-shadow: -4px 0px 5px #333333;
+  width: 30vw;
+  right: -100vw;
+  top: 0px;
+  transition: right 0.5s ease;
+  padding: 12px 8px 12px 8px;
+  z-index: 10;
+}
+
+#numbersHistory #numbersContainer {
+  margin-top: 8px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 5px;
+  height: 90%;
+  overflow: scroll;
+}
+
+.roll-left {
+  right: 0px !important;
+}
+
+#numbersHistory #close_history_btn {
+  z-index: 100;
+}
+
+#numbersHistory .numberBall {
+  width: 8vw;
+  height: 8vw;
+  font-size: 3.5vw;
+}
+
+.overlay {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.5s ease;
+}
+
+.noMoreNumbers {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4.5vw;
+  font-weight: bold;
+}
+
+@keyframes rolldown {
+  0% {
+    top: -100vh;
+    opacity: 100%;
+  }
+
+  25% {
+    top: 12px;
+    opacity: 100%;
+  }
+
+  75% {
+    top: 12px;
+    opacity: 100%;
+  }
+
+  100% {
+    top: -100vh;
+    opacity: 100%;
+  }
+}
+
+.roll-down {
+  animation: rolldown 3.5s;
+}
+
+.BINGO {
+  top: 40vh !important;
+  opacity: 100% !important;
+  font-size: 30px !important;
+}
+
+#cartel {
+  transition: all 1.5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: #fafafa;
+  position: fixed;
+  left: 60vh;
+  right: 60vh;
+  width: auto;
+  padding: 16px;
+  height: auto;
+  top: -50vh;
+  box-shadow: 3px 5px 6px #444444, -3px 5px 6px #444444;
+  z-index: 10;
+  opacity: 0;
+}
+
+@keyframes easterEgg {
+  0% {
+    transform: rotate(0deg) translate(0, 0);
+    left: 85.7vw;
+    top: 5.2vw;
+  }
+  25% {
+    transform: rotate(360deg) translate(25vw, 25vh);
+    left: 0;
+    top: 0;
+  }
+  50% {
+    transform: rotate(720deg) translate(0, 0);
+    left: 85.7vw;
+    top: 5.2vw;
+  }
+  75% {
+    transform: rotate(1440deg) translate(-25vw, -25vh);
+    left: 0;
+    top: 0;
+  }
+  100% {
+    transform: rotate(2880deg) translate(0, 0);
+    left: 85.7vw;
+    top: 5.2vw;
+  }
+}
+
+.easterEgg {
+  animation: easterEgg 6s ease-in-out infinite;
+}
