@@ -54,6 +54,6 @@ app.get("/api/players", function (req, res) {
   res.json(players);
 });
 
-httpServer.listen(3030, function () {
+httpServer.listen(process.env.PORT || 3030, function () {
   console.log("lalala");
 });
